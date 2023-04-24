@@ -8,13 +8,13 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GlobalStyles
+    {/* <GlobalStyles
       styles={{
         body: {
           backgroundColor: '#e7efec',
         },
       }}
-    />
+    /> */}
     <App />
   </React.StrictMode>
 );
