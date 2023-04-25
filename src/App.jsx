@@ -2,8 +2,8 @@ import React from 'react';
 import { ThemeProvider } from '@mui/material';
 import theme from './style/theme';
 import { GlobalStyles } from '@mui/material';
-import Header from './components/Header';
-import Search from './components/Search';
+import Header from './components/header/Header';
+import SearchFlights from './components/searchFlights/SearchFlights';
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
           }}
         />
         <Header />
-        <Search />
+        <SearchFlights />
       </ThemeProvider>
     </>
   );
