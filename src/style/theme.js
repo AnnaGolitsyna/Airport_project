@@ -7,19 +7,11 @@ const theme = createTheme({
       dark: '#1976d2',
       contrastText: '#fff',
     },
-
-    // background: {
-    //   default: "#e7efec"
-    // }
+    background: {
+      default: '#e7efec',
+      paper: '#e7efec',
+    },
   },
-  // breakpoints: {
-  //   values: {
-  //     md: 900,
-  //   },
-  // },
 });
 
-
 export default theme;
-
-

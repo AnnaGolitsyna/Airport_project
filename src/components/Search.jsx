@@ -4,6 +4,7 @@ import {
   Typography,
   TextField,
   Stack,
+  Grid,
   Button,
   ButtonGroup,
 } from '@mui/material';
@@ -11,22 +12,25 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const Search = () => {
   return (
-    <Container>
+    <Container >
       <Stack
         spacing={5}
-        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
       >
-        <Typography variant="h2" mt={10} >
+        <Typography variant="h2" mt={10}>
           FLIGHT SEARCH
         </Typography>
-
         <ButtonGroup>
           <Box
             sx={{
               display: 'flex',
               alignItems: 'flex-end',
               bgcolor: '#FFF',
-              width: [300, 400, 500],
+              width: [200, 400, 500],
             }}
           >
             <SearchIcon sx={{ color: 'action.active', mr: 1, my: 1 }} />
@@ -41,16 +45,21 @@ const Search = () => {
             sx={{
               boxShadow: 0,
               borderRadius: 0,
-              borderTopRightRadius: 40,
+              borderTopRightRadius: 30,
               width: [null, 170, 200],
+              fontSize: [12, 15, 20, 30],
             }}
           >
             FIND
           </Button>
         </ButtonGroup>
+
       </Stack>
     </Container>
   );
 };
 
 export default Search;
+
+
+
