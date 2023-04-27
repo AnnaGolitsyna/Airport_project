@@ -1,29 +1,35 @@
-import { List, ListItem, ListItemText } from '@mui/material';
+import { Box } from '@mui/material';
 
-const navItems = [
-  'For passangers',
-  'IEV Services',
-  'VIP',
-  'Corporate',
-  'Press center',
-  'UA',
-];
+import { NavLink } from 'react-router-dom';
+
+const preventDefault = (event) => event.preventDefault();
 
 const NavBar = () => {
   return (
-    <List
+    <Box
       sx={{
         display: { xs: 'none', md: 'flex' },
         flexDirection: 'row',
         marginLeft: 'auto',
+        alignItems: 'center',
+        typography: 'body1',
+        '& > :not(style) + :not(style)': {
+          ml: 2,
+        },
+        '& a': {
+          color: '#fff',
+          textDecoration: 'none',
+        },
       }}
+      onClick={preventDefault}
     >
-      {navItems.map((item) => (
-        <ListItem key={item}>
-          <ListItemText primary={item} sx={{ textAlign: 'center' }} />
-        </ListItem>
-      ))}
-    </List>
+      <NavLink to="/later">For passanger</NavLink>
+      <NavLink to="/later1">IEV Services</NavLink>
+      <NavLink to="/later2">VIP</NavLink>
+      <NavLink to="/later3">Corporate</NavLink>
+      <NavLink to="/later4">Press center</NavLink>
+      <NavLink to="/later5">UA</NavLink>
+    </Box>
   );
 };
 
