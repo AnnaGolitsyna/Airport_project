@@ -1,10 +1,8 @@
 import {
-  Box,
-  Container,
-  Typography,
-  TextField,
-  Stack,
-  Grid,
+  FormControl,
+  InputLabel,
+  Input,
+  InputAdornment,
   Button,
   ButtonGroup,
 } from '@mui/material';
@@ -13,22 +11,25 @@ import SearchIcon from '@mui/icons-material/Search';
 const SearchInput = () => {
   return (
     <ButtonGroup>
-      <Box
+      <FormControl
+        variant="standard"
         sx={{
-          display: 'flex',
-          alignItems: 'flex-end',
+          pl: 1,
           bgcolor: '#FFF',
-          width: [200, 400, 500],
+          borderTopLeftRadius: 30,
+          width: [250, 400, 500],
         }}
       >
-        <SearchIcon sx={{ color: 'action.active', mr: 1, my: 1 }} />
-        <TextField
-          id="input-with-sx"
-          label="Enter a flight number or city"
-          variant="standard"
-          sx={{ width: [150, 350, 450]}}
+        <InputLabel sx={{ pl: 5 }}>Enter a flight number or city</InputLabel>
+        <Input
+          id="input-with-icon-adornment"
+          startAdornment={
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          }
         />
-      </Box>
+      </FormControl>
       <Button
         variant="contained"
         sx={{
@@ -36,7 +37,7 @@ const SearchInput = () => {
           borderRadius: 0,
           borderTopRightRadius: 30,
           width: [null, 170, 200],
-          fontSize: [10, 15, 20, 30],
+          fontSize: [10, 15, 20],
         }}
       >
         SEARCH

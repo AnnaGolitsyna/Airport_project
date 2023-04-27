@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 
 import SearchInput from './SearchInput';
-import SearchResult from './SearchResult';
+import FlightTable from './FlightTable';
 import FloatingActionButtonZoom from './test'
 
 const SearchFlights = () => {
@@ -30,10 +30,9 @@ const SearchFlights = () => {
 
         <SearchInput />
 
-        <SearchResult />
-        
-        <FloatingActionButtonZoom />
+        <FlightTable />
 
+        {/* <FloatingActionButtonZoom /> */}
       </Stack>
     </Container>
   );
