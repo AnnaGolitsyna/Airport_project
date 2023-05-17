@@ -4,9 +4,9 @@ import { ThemeProvider } from '@mui/material';
 import theme from './style/theme';
 import { GlobalStyles } from '@mui/material';
 import NotFoundPage from './components/pages/NotFoundPage';
-import PageWrapper from './components/PageWrapper';
-//import Header from './components/header/Header';
-//import SearchFlights from './components/searchFlights/SearchFlights';
+import MainPage from './components/MainPage.jsx';
+
+
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
           }}
         />
         <Routes>
-          <Route path="/" element={<PageWrapper />}>
+          <Route path="/" element={<MainPage />}>
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

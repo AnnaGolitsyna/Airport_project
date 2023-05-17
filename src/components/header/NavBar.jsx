@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-
 import { NavLink } from 'react-router-dom';
 
 const preventDefault = (event) => event.preventDefault();

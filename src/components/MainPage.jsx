@@ -2,14 +2,14 @@ import { Outlet } from 'react-router-dom';
 import Header from './header/Header';
 import SearchFlights from './searchFlights/SearchFlights';
 
-const PageWrapper = () => {
+const MainPage = () => {
   return (
     <>
       <Header />
-      <Outlet />
       <SearchFlights />
+      <Outlet />
     </>
   );
 };
 
-export default PageWrapper;
+export default MainPage;

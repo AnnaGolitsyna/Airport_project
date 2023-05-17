@@ -20,7 +20,7 @@ const SearchInput = () => {
           width: [250, 400, 500],
         }}
       >
-        <InputLabel sx={{ pl: 5 }}>Enter a flight number or city</InputLabel>
+        <InputLabel sx={{ pl: 5 }}>Enter a flight number</InputLabel>
         <Input
           id="input-with-icon-adornment"
           startAdornment={

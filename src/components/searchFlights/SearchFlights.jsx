@@ -11,7 +11,8 @@ import {
 
 import SearchInput from './SearchInput';
 import FlightTable from './FlightTable';
-import FloatingActionButtonZoom from './test'
+import FloatingActionButtonZoom from './test';
+import SearchBar from './SearchBar';
 
 const SearchFlights = () => {
   return (
@@ -29,6 +30,8 @@ const SearchFlights = () => {
         </Typography>
 
         <SearchInput />
+
+        <SearchBar />
 
         <FlightTable />
 

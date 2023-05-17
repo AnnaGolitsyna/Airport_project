@@ -1,4 +1,4 @@
-import { dataFlights } from './data';
+import { dataFlights } from '../../gateway/data';
 
 import * as React from 'react';
 import moment from 'moment/moment';
