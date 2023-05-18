@@ -61,20 +61,8 @@ export default function FullWidthTabs() {
   };
 
   return (
-    <Container>
-      <ButtonGroup
-        disableElevation
-        variant="contained"
-        aria-label="Disabled elevation buttons"
-      >
-        <Button>
-          <FlightTakeoffIcon />
-          Departure
-        </Button>
-        <Button>
-          <FlightLandIcon /> Arrival
-        </Button>
-      </ButtonGroup>
+
+
       <Box sx={{ bgcolor: 'background.paper' }}>
         <Box position="static">
           <EventRepeatIcon
@@ -85,24 +73,16 @@ export default function FullWidthTabs() {
             onChange={handleChange}
             indicatorColor="primary"
             textColor="inherit"
-            // variant="fullWidth"
+            
             aria-label="basic tabs example"
           >
             <Tab label="yesterday" {...a11yProps(0)} />
             <Tab label="today" {...a11yProps(1)} />
             <Tab label="tomorrow" {...a11yProps(2)} />
-            <Tab
-              label={
-                <Button>
-                  <FlightTakeoffIcon />
-                  Departure
-                </Button>
-              }
-              {...a11yProps(3)}
-            ></Tab>
+
           </Tabs>
         </Box>
-        <Box
+        {/* <Box
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={value}
           onChangeIndex={handleChangeIndex}
@@ -119,8 +99,8 @@ export default function FullWidthTabs() {
           <TabPanel value={value} index={3} dir={theme.direction}>
             ???
           </TabPanel>
-        </Box>
+        </Box> */}
       </Box>
-    </Container>
+
   );
 }

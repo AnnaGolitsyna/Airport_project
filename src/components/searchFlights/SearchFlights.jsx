@@ -33,7 +33,9 @@ const SearchFlights = () => {
 
         <SearchBar />
 
-        <FlightTable />
+        
+
+        {/* <FlightTable /> */}
 
         {/* <FloatingActionButtonZoom /> */}
       </Stack>

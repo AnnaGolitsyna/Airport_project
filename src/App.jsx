@@ -6,6 +6,8 @@ import { GlobalStyles } from '@mui/material';
 import Layout from './pages/Layout';
 import NotFoundPage from './pages/NotFoundPage';
 import MainPage from './pages/MainPage';
+import Departure from './pages/Departure';
+import Arrival from './pages/Arrival';
 
 
 
@@ -22,7 +24,11 @@ const App = () => {
         />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/" element={<MainPage />}>
+              <Route path="departure" element={<Departure />} />
+              <Route path="arrival" element={<Arrival />} />
+            </Route>
+
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
