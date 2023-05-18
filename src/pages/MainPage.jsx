@@ -1,14 +1,13 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from './header/Header';
-import SearchFlights from './searchFlights/SearchFlights';
+import SearchFlights from '../components/searchFlights/SearchFlights';
 
 const MainPage = () => {
   return (
-    <>
-      <Header />
+    <React.Fragment>
       <SearchFlights />
       <Outlet />
-    </>
+    </React.Fragment>
   );
 };
 

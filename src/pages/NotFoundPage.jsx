@@ -1,11 +1,11 @@
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => {
   return (
-    <Container sx={{textAlign: 'center'}}>
+    <Container sx={{ textAlign: 'center' }}>
       <Typography variant="h6" mt={10}>
-        This page will be available later.
+        <Box>This page will be available later.</Box>
         <Link to="/">Go home.</Link>
       </Typography>
     </Container>

@@ -1,5 +1,5 @@
 import { AppBar, Box, Toolbar } from '@mui/material';
-import NavBar from './NavBar';
+import NavBar from '../navBar/NavBar';
 import airportLogo from '../../style/airportLogo.png';
 
 const Header = () => {

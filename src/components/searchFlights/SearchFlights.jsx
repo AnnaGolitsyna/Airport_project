@@ -9,10 +9,10 @@ import {
   ButtonGroup,
 } from '@mui/material';
 
-import SearchInput from './SearchInput';
-import FlightTable from './FlightTable';
-import FloatingActionButtonZoom from './test';
-import SearchBar from './SearchBar';
+import SearchInput from '../searchInput/SearchInput';
+import FlightTable from '../flightTable/FlightTable';
+import FloatingActionButtonZoom from '../searchBar/test';
+import SearchBar from '../searchBar/SearchBar';
 
 const SearchFlights = () => {
   return (

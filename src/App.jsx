@@ -3,8 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 import theme from './style/theme';
 import { GlobalStyles } from '@mui/material';
-import NotFoundPage from './components/pages/NotFoundPage';
-import MainPage from './components/MainPage.jsx';
+import Layout from './pages/Layout';
+import NotFoundPage from './pages/NotFoundPage';
+import MainPage from './pages/MainPage';
 
 
 
@@ -20,7 +21,8 @@ const App = () => {
           }}
         />
         <Routes>
-          <Route path="/" element={<MainPage />}>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<MainPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
