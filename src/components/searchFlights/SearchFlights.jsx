@@ -11,7 +11,7 @@ import {
 
 import SearchInput from '../searchInput/SearchInput';
 import FlightTable from '../flightTable/FlightTable';
-import FloatingActionButtonZoom from '../searchBar/test';
+
 import SearchBar from '../searchBar/SearchBar';
 
 const SearchFlights = () => {
@@ -33,11 +33,11 @@ const SearchFlights = () => {
 
         <SearchBar />
 
-        
 
-        {/* <FlightTable /> */}
 
-        {/* <FloatingActionButtonZoom /> */}
+
+       
+      {/* <FlightTable /> */}
       </Stack>
     </Container>
   );
