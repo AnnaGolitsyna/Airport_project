@@ -1,9 +1,10 @@
 import React from 'react';
+import FlightTable from '../components/flightTable/FlightTable';
 
 const Departure = () => {
   return (
     <React.Fragment>
-      <div>Departure</div>
+      <FlightTable />
     </React.Fragment>
   );
 };

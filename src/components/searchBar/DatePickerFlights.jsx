@@ -1,15 +1,15 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Box, Typography, Popover } from '@mui/material';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import EventRepeatIcon from '@mui/icons-material/EventRepeat';
-import Popover from '@mui/material/Popover';
-import moment from 'moment';
-//import Calendar from './Calendar'; // Replace 'Calendar' with the appropriate calendar component you have
+import { today } from '../../utils/date';
+
 
 const DatePickerFlights = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const today = moment();
-
+  //const [value, setValue] = React.useState(today);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -19,7 +19,7 @@ const DatePickerFlights = () => {
   };
 
   const open = Boolean(anchorEl);
-
+  
   return (
     <Box sx={{ bgcolor: 'background.paper' }}>
       <Box
@@ -52,8 +52,9 @@ const DatePickerFlights = () => {
           horizontal: 'left',
         }}
       >
-        <Box>HELLO</Box>
-        {/* <Calendar /> */}
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DateCalendar />
+        </LocalizationProvider>
       </Popover>
     </Box>
   );
