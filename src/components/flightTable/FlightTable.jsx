@@ -2,7 +2,7 @@ import { dataFlights } from '../../gateway/data';
 
 import * as React from 'react';
 import moment from 'moment/moment';
-import { styled } from '@mui/material/styles';
+import { StyledTableRow, StyledTableCell } from './styledComponnent';
 import {
   Box,
   Table,
@@ -10,27 +10,11 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TableCell,
   Paper,
   CardMedia,
   Container,
 } from '@mui/material';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.background.default,
-  },
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.background.paper,
-    color: theme.palette.primary.main,
-  },
-}));
 
 export default function FlightTable() {
   return (
@@ -52,7 +36,7 @@ export default function FlightTable() {
               <StyledTableRow
                 key={flight.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                hover="true"
+                hover={true}
               >
                 <TableCell align="center">{flight.terminal}</TableCell>
                 <TableCell align="left">
