@@ -15,7 +15,7 @@ const SearchInput = () => {
         variant="standard"
         sx={{
           pl: 1,
-          bgcolor: '#FFF',
+          bgcolor: 'primary.light',
           borderTopLeftRadius: 30,
           width: [250, 400, 500],
         }}
