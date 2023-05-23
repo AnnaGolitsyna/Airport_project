@@ -1,22 +1,24 @@
-import React from 'react';
-import { Box, Container, Typography, Tabs, Tab } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Container } from '@mui/material';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
-import { today, yesterday, tomorrow } from '../../utils/date';
+import { today } from '../../utils/date';
 import {
   StyledBox,
   StyledNavLink,
   StyledTypography,
   StyledIcon,
 } from './styledComponnent';
+import dayjs from 'dayjs';
 import DatePickerFlights from './DatePickerFlights';
+import DateSwitch from './DateSwitch';
 
 const SearchBar = () => {
-  const [value, setValue] = React.useState(today.format('YYYY-MM-DD'));
-  console.log(value);
+  const [date, setDate] = useState(dayjs(today));
+  console.log('main', date);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setDate(newValue);
   };
 
   return (
@@ -35,38 +37,10 @@ const SearchBar = () => {
           </StyledTypography>
         </StyledNavLink>
       </StyledBox>
-      <Box sx={{ display: 'flex', width: '100%', bgcolor: 'background.paper' }}>
-        <DatePickerFlights />
 
-        <Tabs value={value} onChange={handleChange}>
-          <Tab
-            value={yesterday.format('YYYY-MM-DD')}
-            label={
-              <>
-                {yesterday.format('DD/MM')}
-                <Typography>yesterday</Typography>
-              </>
-            }
-          />
-          <Tab
-            value={today.format('YYYY-MM-DD')}
-            label={
-              <>
-                {today.format('DD/MM')}
-                <Typography>today</Typography>
-              </>
-            }
-          />
-          <Tab
-            value={tomorrow.format('YYYY-MM-DD')}
-            label={
-              <>
-                {tomorrow.format('DD/MM')}
-                <Typography>tomorrow</Typography>
-              </>
-            }
-          />
-        </Tabs>
+      <Box sx={{ display: 'flex', width: '100%', bgcolor: 'background.paper' }}>
+        <DatePickerFlights date={date} onChange={handleChange} />
+        <DateSwitch value={date} onChange={handleChange} />
       </Box>
     </Container>
   );

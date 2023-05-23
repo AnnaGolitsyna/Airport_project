@@ -1,7 +1,8 @@
-import moment from "moment";
 
-const today = moment();
-const yesterday = moment().subtract(1, 'day');
-const tomorrow = moment().add(1, 'day');
+import dayjs from 'dayjs';
+
+const yesterday = dayjs().subtract(1, 'day');
+const today = dayjs();
+const tomorrow = dayjs().add(1, 'day');
 
 export { today, yesterday, tomorrow };

@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Popover } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import EventRepeatIcon from '@mui/icons-material/EventRepeat';
-import { today } from '../../utils/date';
 
 
-const DatePickerFlights = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  //const [value, setValue] = React.useState(today);
+const DatePickerFlights = ({ date, onChange }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -18,8 +17,13 @@ const DatePickerFlights = () => {
     setAnchorEl(null);
   };
 
+  const handleSetDate = (newDate) => {
+    onChange(null, newDate);
+    handleClose();
+  };
+
   const open = Boolean(anchorEl);
-  
+
   return (
     <Box sx={{ bgcolor: 'background.paper' }}>
       <Box
@@ -30,7 +34,7 @@ const DatePickerFlights = () => {
         }}
         onClick={handleClick}
       >
-        <Typography>{today.format('DD/MM')}</Typography>
+        <Typography>{date.format('DD/MM')}</Typography>
         <EventRepeatIcon
           sx={{
             fontSize: '3em',
@@ -53,7 +57,10 @@ const DatePickerFlights = () => {
         }}
       >
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DateCalendar />
+          <DateCalendar
+            value={date}
+            onChange={handleSetDate}
+          />
         </LocalizationProvider>
       </Popover>
     </Box>
