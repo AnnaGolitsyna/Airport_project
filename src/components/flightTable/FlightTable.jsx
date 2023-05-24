@@ -1,4 +1,4 @@
-import { dataFlights } from '../../gateway/data';
+//import { dataFlights } from '../../gateway/data';
 
 import * as React from 'react';
 import moment from 'moment/moment';
@@ -16,7 +16,7 @@ import {
   Container,
 } from '@mui/material';
 
-export default function FlightTable() {
+export default function FlightTable({ dataFlights }) {
   return (
     <Container>
       <TableContainer component={Paper}>
