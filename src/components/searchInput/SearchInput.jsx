@@ -11,11 +11,18 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const SearchInput = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const updateSearchParam = (paramName, paramValue) => {
+    setSearchParams((prevSearchParams) => ({
+      ...prevSearchParams,
+      [paramName]: paramValue,
+    }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = e.target.searchInput.value;
-    setSearchParams({ flight: query.toUpperCase() });
+
+    updateSearchParam('flight', query.toUpperCase());
+    //setSearchParams({ flight: query.toUpperCase() });
   };
 
   return (

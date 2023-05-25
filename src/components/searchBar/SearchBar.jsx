@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Box, Container } from '@mui/material';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
@@ -15,10 +16,21 @@ import DateSwitch from './DateSwitch';
 
 const SearchBar = () => {
   const [date, setDate] = useState(dayjs(today));
-  console.log('main', date);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  // {    date: date.format('DD-MM-YYYY'),  }
+
+  console.log('main', date, date.format('DD-MM-YYYY'), searchParams);
+
+  useEffect(() => {
+    // const { size } = searchParams;
+    // console.log(size);
+    setSearchParams({ date: date.format('DD-MM-YYYY') });
+  }, [searchParams]);
 
   const handleChange = (event, newValue) => {
     setDate(newValue);
+    setSearchParams({ date: newValue.format('DD-MM-YYYY') });
   };
 
   return (

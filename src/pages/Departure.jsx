@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchFlights } from '../hook/filteredFlights';
 import FlightTable from '../components/flightTable/FlightTable';
 import { dataFlights } from '../gateway/data.js';
 
@@ -8,13 +8,7 @@ const departuredFlights = dataFlights.filter(
 );
 
 const Departure = () => {
-  let [searchParams] = useSearchParams();
-  const queryParams = searchParams.get('flight');
-  const filterDeparturedFlights = departuredFlights.filter(
-    ({ codeShare }) => codeShare === queryParams
-  );
-  const flights = queryParams ? filterDeparturedFlights : departuredFlights;
-
+  const flights = useSearchFlights(departuredFlights);
   return (
     <Fragment>
       <FlightTable dataFlights={flights} />

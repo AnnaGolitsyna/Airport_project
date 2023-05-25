@@ -2,8 +2,6 @@ import { Typography, Tabs, Tab } from '@mui/material';
 import { today, yesterday, tomorrow } from '../../utils/date';
 
 const DateSwitch = ({ value, onChange }) => {
-  //console.log(value);
-
   const isValidValue = [yesterday, today, tomorrow].includes(value);
   const selectedValue = isValidValue ? value : false;
 
