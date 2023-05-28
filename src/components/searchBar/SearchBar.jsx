@@ -20,13 +20,15 @@ const SearchBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   // {    date: date.format('DD-MM-YYYY'),  }
 
-  console.log('main', date, date.format('DD-MM-YYYY'), searchParams);
+  //console.log('main', date, date.format('DD-MM-YYYY'), searchParams);
 
   useEffect(() => {
-    // const { size } = searchParams;
-    // console.log(size);
-    setSearchParams({ date: date.format('DD-MM-YYYY') });
+    console.log('date', Object.entries(searchParams));
+    searchParams.set('date', date.format('DD-MM-YYYY'));
+    setSearchParams(searchParams);
   }, [searchParams]);
+
+
 
   const handleChange = (event, newValue) => {
     setDate(newValue);
