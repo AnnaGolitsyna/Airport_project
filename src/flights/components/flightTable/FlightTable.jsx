@@ -1,6 +1,10 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
-import { StyledTableRow, StyledTableCell } from './styledComponnent';
+import {
+  StyledTableRow,
+  StyledTableCell,
+  StyledTypography,
+} from './styledComponnent';
 import {
   Box,
   Table,
@@ -36,7 +40,9 @@ export default function FlightTable({ dataFlights }) {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 hover={true}
               >
-                <TableCell align="center">{flight.terminal}</TableCell>
+                <TableCell align="center">
+                  <StyledTypography>{flight.terminal}</StyledTypography>
+                </TableCell>
                 <TableCell align="left">
                   {dayjs(flight.dateExpected).format('LT')}
                 </TableCell>

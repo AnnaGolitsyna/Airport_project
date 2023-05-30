@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { TableRow } from '@mui/material';
+import { TableRow, Typography } from '@mui/material';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -17,4 +17,18 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color: theme.palette.primary.main,
   },
 }));
-export { StyledTableRow, StyledTableCell };
+
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.primary.main,
+  display: 'inline-block',
+  width: '30px',
+  height: '30px',
+  lineHeight: '30px',
+  borderRadius: '50%',
+  textAlign: 'center',
+  fontWeight: '600',
+  border: '2px solid',
+  borderColor: theme.palette.primary.main,
+}));
+
+export { StyledTableRow, StyledTableCell, StyledTypography };
