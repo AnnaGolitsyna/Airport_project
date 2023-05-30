@@ -23,11 +23,13 @@ const SearchBar = () => {
   //console.log('main', date, date.format('DD-MM-YYYY'), searchParams);
 
   useEffect(() => {
-    console.log('date', Object.entries(searchParams));
-    searchParams.set('date', date.format('DD-MM-YYYY'));
-    setSearchParams(searchParams);
+    setSearchParams((prevParams) => {
+      return new URLSearchParams({
+        ...Object.fromEntries(prevParams.entries()),
+        date: date.format('DD-MM-YYYY'),
+      });
+    });
   }, [searchParams]);
-
 
 
   const handleChange = (event, newValue) => {

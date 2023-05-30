@@ -12,32 +12,18 @@ import SearchIcon from '@mui/icons-material/Search';
 const SearchInput = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // for (const [key, value] of searchParams.entries()) {
-  //   console.log('flied', key, value);
-  // }
-  // console.log('sp', searchParams.entries());
+  //console.log('sp', Object.fromEntries(searchParams.entries()));
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = e.target.searchInput.value;
     console.log(query);
-    // updateSearchParam('flight', query.toUpperCase());
-    // setSearchParams((prevParams) => {
-    //   console.log('test', prevParams, {
-    //     ...prevParams,
-    //     flight: query.toUpperCase(),
-    //   });
-    //   return {
-    //     ...prevParams,
-    //     flight: query.toUpperCase(),
-    //   };
-    // });
+    setSearchParams((prevParams) => {
+      return new URLSearchParams({
+        ...Object.fromEntries(prevParams.entries()),
+        flight: query.toUpperCase(),
+      });
+    });
 
-    //console.log(searchParams.set('flight', 'b'));
-    setSearchParams((prevParams) => ({
-      ...prevParams,
-      flight: query.toUpperCase(),
-    }));
-    // setSearchParams(searchParams.append('flight', query.toUpperCase()));
   };
 
   return (
