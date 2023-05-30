@@ -140,12 +140,12 @@ export const dataFlights = [
   },
   {
     terminal: 'C',
-    departureCity: 'Paris',
-    arrivalCity: 'Berlin',
+    departureCity: 'Paris', // => Kyiv
+    arrivalCity: 'Berlin', //
     type: 'DEPARTURE',
-    departureDate: 1679921571000,
+    departureDate: 1679921571000, //
     arrivalDate: 1679957971000,
-    departureDateExpected: 1684998272424,
+    departureDateExpected: 1684998272424, //
     arrivalDateExpected: 1679958371000,
     status: 'DP',
     airlineName: 'Lufthansa',
@@ -156,12 +156,12 @@ export const dataFlights = [
   {
     terminal: 'C', // 2
     departureCity: 'Munich', //4
-    arrivalCity: 'Lyon', // => 9
+    arrivalCity: 'Lyon', // => Kyiv
     type: 'ARRIVAL', //0
     departureDate: 1679798115000,
-    arrivalDate: 1679811715000, // 5
+    arrivalDate: null, // 5
     departureDateExpected: 1679794215000,
-    arrivalDateExpected: 1685084672424,//3
+    arrivalDateExpected: 1685084672424, //3
     status: 'AR',
     airlineName: 'Air France', //7
     airlineLogo: 'https://logos.skyscnr.com/images/airlines/favicon/AF.png', //6

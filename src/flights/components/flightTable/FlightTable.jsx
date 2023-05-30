@@ -1,7 +1,5 @@
-//import { dataFlights } from '../../gateway/data';
-
 import * as React from 'react';
-import moment from 'moment/moment';
+import dayjs from 'dayjs';
 import { StyledTableRow, StyledTableCell } from './styledComponnent';
 import {
   Box,
@@ -40,11 +38,13 @@ export default function FlightTable({ dataFlights }) {
               >
                 <TableCell align="center">{flight.terminal}</TableCell>
                 <TableCell align="left">
-                  {moment(flight.arrivalDateExpected).format('LT')}
+                  {dayjs(flight.dateExpected).format('LT')}
                 </TableCell>
-                <TableCell align="left">{flight.arrivalCity}</TableCell>
+                <TableCell align="left">{flight.city}</TableCell>
                 <TableCell align="left">
-                  {moment(flight.arrivalDate).format('LT')}
+                  {flight.date
+                    ? `${flight.dateLabel} ${dayjs(flight.date).format('LT')}`
+                    : 'Expected'}
                 </TableCell>
                 <TableCell align="left">
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
