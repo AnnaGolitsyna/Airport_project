@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Box, Container } from '@mui/material';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import FlightLandIcon from '@mui/icons-material/FlightLand';
-import { today } from '../../utils/date';
+import { today } from '../../../utils/date';
 import {
   StyledBox,
   StyledNavLink,

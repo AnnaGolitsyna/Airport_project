@@ -3,11 +3,11 @@ import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 import theme from './style/theme';
 import { GlobalStyles } from '@mui/material';
-import Layout from './pages/Layout';
-import NotFoundPage from './pages/NotFoundPage';
-import MainPage from './pages/MainPage';
-import Departure from './pages/Departure';
-import Arrival from './pages/Arrival';
+import Layout from './flights/pages/Layout';
+import NotFoundPage from './flights/pages/NotFoundPage';
+import MainPage from './flights/pages/MainPage';
+import Departure from './flights/pages/Departure';
+import Arrival from './flights/pages/Arrival';
 
 
 

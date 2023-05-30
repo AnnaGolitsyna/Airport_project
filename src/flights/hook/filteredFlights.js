@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { today } from '../utils/date';
+import { today } from '../../utils/date';
 
 const useSearchFlights = (dataFligths) => {
 
@@ -9,10 +9,10 @@ const useSearchFlights = (dataFligths) => {
   const queryParamsDate = searchParams.get('date');
   const queryParamsFligth = searchParams.get('flight');
   console.log('hook', searchParams, queryParamsDate, queryParamsFligth);
-  const filterDeparturedFlights = dataFligths.filter(
+  const filterFlights = dataFligths.filter(
     ({ codeShare }) => codeShare === queryParamsFligth
   );
-  const flights = queryParamsFligth ? filterDeparturedFlights : dataFligths;
+  const flights = queryParamsFligth ? filterFlights : dataFligths;
   console.log(flights);
   return flights;
 };

@@ -154,18 +154,18 @@ export const dataFlights = [
     codeShare: 'XG398',
   },
   {
-    terminal: 'C',
-    departureCity: 'Munich',
-    arrivalCity: 'Lyon',
-    type: 'ARRIVAL',
+    terminal: 'C', // 2
+    departureCity: 'Munich', //4
+    arrivalCity: 'Lyon', // => 9
+    type: 'ARRIVAL', //0
     departureDate: 1679798115000,
-    arrivalDate: 1679811715000,
+    arrivalDate: 1679811715000, // 5
     departureDateExpected: 1679794215000,
-    arrivalDateExpected: 1685084672424,
+    arrivalDateExpected: 1685084672424,//3
     status: 'AR',
-    airlineName: 'Air France',
-    airlineLogo: 'https://logos.skyscnr.com/images/airlines/favicon/AF.png',
-    id: '101',
-    codeShare: 'DL874',
+    airlineName: 'Air France', //7
+    airlineLogo: 'https://logos.skyscnr.com/images/airlines/favicon/AF.png', //6
+    id: '101', // 1
+    codeShare: 'DL874', //8
   },
 ];
