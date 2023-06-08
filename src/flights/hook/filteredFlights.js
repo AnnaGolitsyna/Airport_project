@@ -1,20 +1,23 @@
 import { useSearchParams } from 'react-router-dom';
+import dayjs from 'dayjs';
 import { today } from '../../utils/date';
 
 const useSearchFlights = (dataFligths) => {
-
-  const [searchParams, setSearchParams] = useSearchParams({
+  const [searchParams] = useSearchParams({
     date: today.format('DD-MM-YYYY'),
   });
-  const queryParamsDate = searchParams.get('date');
-  const queryParamsFligth = searchParams.get('flight');
-  console.log('hook', searchParams, queryParamsDate, queryParamsFligth);
-  const filterFlights = dataFligths.filter(
-    ({ codeShare }) => codeShare === queryParamsFligth
-  );
-  const flights = queryParamsFligth ? filterFlights : dataFligths;
-  console.log(flights);
-  return flights;
+  const qpDate = searchParams.get('date');
+  const qpFligth = searchParams.get('flight');
+
+  const filterFlights = dataFligths.filter(({ dateExpected, codeShare }) => {
+    return qpFligth
+      ? qpFligth === codeShare &&
+          dayjs(dateExpected).format('DD-MM-YYYY') === qpDate
+      : dayjs(dateExpected).format('DD-MM-YYYY') === qpDate;
+  });
+
+  console.log('res', filterFlights);
+  return { filterFlights, qpDate };
 };
 
 export { useSearchFlights };

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import dayjs from 'dayjs';
 import {
   StyledTableRow,
@@ -19,7 +19,8 @@ import {
 } from '@mui/material';
 
 export default function FlightTable({ dataFlights }) {
-  return (
+
+   return (
     <Container>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

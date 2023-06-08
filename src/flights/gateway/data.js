@@ -115,8 +115,8 @@ export const dataFlights = [
     type: 'ARRIVAL',
     departureDate: 1680177438000,
     arrivalDate: 1680188258000,
-    departureDateExpected: 1680174638000,
-    arrivalDateExpected: 1680191458000,
+    departureDateExpected: Date.now(),
+    arrivalDateExpected: Date.now(),
     status: 'AR',
     airlineName: 'Aeroflot',
     airlineLogo: 'https://logos.skyscnr.com/images/airlines/favicon/SU.png',
@@ -130,8 +130,8 @@ export const dataFlights = [
     type: 'DEPARTURE',
     departureDate: 1680584547000,
     arrivalDate: 1680598147000,
-    departureDateExpected: 1684911872424,
-    arrivalDateExpected: 1680599947000,
+    departureDateExpected: Date.now(),
+    arrivalDateExpected: Date.now(),
     status: 'DP',
     airlineName: 'Alitalia',
     airlineLogo: 'https://logos.skyscnr.com/images/airlines/favicon/AZ.png',
@@ -145,8 +145,8 @@ export const dataFlights = [
     type: 'DEPARTURE',
     departureDate: 1679921571000, //
     arrivalDate: 1679957971000,
-    departureDateExpected: 1684998272424, //
-    arrivalDateExpected: 1679958371000,
+    departureDateExpected: Date.now(), //
+    arrivalDateExpected: Date.now(),
     status: 'DP',
     airlineName: 'Lufthansa',
     airlineLogo: 'https://logos.skyscnr.com/images/airlines/favicon/LH.png',
@@ -160,8 +160,8 @@ export const dataFlights = [
     type: 'ARRIVAL', //0
     departureDate: 1679798115000,
     arrivalDate: null, // 5
-    departureDateExpected: 1679794215000,
-    arrivalDateExpected: 1685084672424, //3
+    departureDateExpected: Date.now(),
+    arrivalDateExpected: Date.now(), //3
     status: 'AR',
     airlineName: 'Air France', //7
     airlineLogo: 'https://logos.skyscnr.com/images/airlines/favicon/AF.png', //6
