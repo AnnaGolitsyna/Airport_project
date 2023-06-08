@@ -12,18 +12,15 @@ import SearchIcon from '@mui/icons-material/Search';
 const SearchInput = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  //console.log('sp', Object.fromEntries(searchParams.entries()));
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = e.target.searchInput.value;
-    console.log(query);
     setSearchParams((prevParams) => {
       return new URLSearchParams({
         ...Object.fromEntries(prevParams.entries()),
         flight: query.toUpperCase(),
       });
     });
-
   };
 
   return (
