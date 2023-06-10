@@ -12,19 +12,21 @@ import SearchIcon from '@mui/icons-material/Search';
 const SearchInput = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleSubmit = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
     const query = e.target.searchInput.value;
+    //const paramsName = /\d+/.test(query) ? 'flight' : 'city';
+
     setSearchParams((prevParams) => {
       return new URLSearchParams({
         ...Object.fromEntries(prevParams.entries()),
-        flight: query.toUpperCase(),
+        search: query.toUpperCase(),
       });
     });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSearch}>
       <ButtonGroup>
         <FormControl
           variant="standard"
