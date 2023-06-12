@@ -1,15 +1,12 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 import theme from './style/theme';
 import { GlobalStyles } from '@mui/material';
 import Layout from './flights/pages/Layout';
 import NotFoundPage from './flights/pages/NotFoundPage';
-import MainPage from './flights/pages/MainPage';
 import Departure from './flights/pages/Departure';
 import Arrival from './flights/pages/Arrival';
-
-
 
 const App = () => {
   return (
@@ -24,11 +21,9 @@ const App = () => {
         />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="/" element={<MainPage />}>
-              <Route path="departure" element={<Departure />} />
-              <Route path="arrival" element={<Arrival />} />
-            </Route>
-
+            <Route path="departure" element={<Departure />} />
+            <Route path="arrival" element={<Arrival />} />
+            <Route index element={<Navigate to="departure" replace />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
@@ -38,3 +33,5 @@ const App = () => {
 };
 
 export default App;
+
+

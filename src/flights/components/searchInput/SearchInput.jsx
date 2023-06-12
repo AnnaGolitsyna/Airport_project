@@ -15,8 +15,6 @@ const SearchInput = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const query = e.target.searchInput.value;
-    //const paramsName = /\d+/.test(query) ? 'flight' : 'city';
-
     setSearchParams((prevParams) => {
       return new URLSearchParams({
         ...Object.fromEntries(prevParams.entries()),
@@ -37,7 +35,7 @@ const SearchInput = () => {
             width: [250, 400, 500],
           }}
         >
-          <InputLabel sx={{ pl: 5 }}>Enter a flight number</InputLabel>
+          <InputLabel sx={{ pl: 5 }}>Enter a flight number or city</InputLabel>
           <Input
             name="searchInput"
             id="input-with-icon-adornment"
