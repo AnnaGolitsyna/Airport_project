@@ -1,5 +1,7 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import store from './store.js';
 import { ThemeProvider } from '@mui/material';
 import theme from './style/theme';
 import { GlobalStyles } from '@mui/material';
@@ -19,19 +21,19 @@ const App = () => {
             },
           }}
         />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="departure" element={<Departure />} />
-            <Route path="arrival" element={<Arrival />} />
-            <Route index element={<Navigate to="departure" replace />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
-        </Routes>
+        <Provider store={store}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route path="departure" element={<Departure />} />
+              <Route path="arrival" element={<Arrival />} />
+              <Route index element={<Navigate to="departure" replace />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+        </Provider>
       </ThemeProvider>
     </>
   );
 };
 
 export default App;
-
-

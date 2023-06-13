@@ -1,5 +1,11 @@
 import { dataFlights } from './gateway/data';
+import { createSelectorHook } from 'react-redux';
+import { createSelector } from '@reduxjs/toolkit';
+//import { createSelector } from 'reselect';
 
+
+export const useTaskDataSelector = createSelectorHook();
+console.log('uSH', useTaskDataSelector);
 // add filter of city - Kyiv
 
 const arrivedFlights = dataFlights
