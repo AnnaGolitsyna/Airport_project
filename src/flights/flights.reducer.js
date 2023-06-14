@@ -7,9 +7,10 @@ const initialState = {
 const flightsReduser = (state = initialState, action) => {
   switch (action.type) {
     case FLIGHTS_LIST_RECIEVED:
+      console.log('act', action.payload);
       return {
         ...state,
-        flights: action.payload.flights,
+        flights: action.payload,
       };
 
     default:

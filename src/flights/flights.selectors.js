@@ -1,7 +1,24 @@
 import { dataFlights } from './gateway/data';
 import { createSelector } from 'reselect';
 
+export const flightsDataSelector = (state) => state.flights.flights;
 
+export const departuredFlightsSelector = createSelector(
+  [flightsDataSelector],
+  (flightsData) =>
+    flightsData
+      .filter(({ type }) => type === 'DEPARTURE')
+      .map(
+        ({ departureDateExpected, arrivalCity, departureDate, ...rest }) => ({
+          dateExpected: departureDateExpected,
+          city: arrivalCity,
+          date: departureDate,
+          dateLabel: 'Departed at',
+          ...rest,
+        })
+      )
+);
+console.log('s', flightsDataSelector, departuredFlightsSelector);
 // add filter of city - Kyiv
 
 const arrivedFlights = dataFlights
