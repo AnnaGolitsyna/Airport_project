@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Container } from '@mui/material';
 import dayjs from 'dayjs';
 import TextAfterWar from './TextAfterWar';
@@ -26,6 +27,10 @@ const NotFlights = ({ date }) => {
       </Box>
     </Container>
   );
+};
+
+NotFlights.propTypes = {
+  date: PropTypes.string.isRequired,
 };
 
 export default NotFlights;

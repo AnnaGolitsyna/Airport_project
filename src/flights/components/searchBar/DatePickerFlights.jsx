@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import dayjs from 'dayjs';
 import { Box, Typography, Popover, Alert } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -10,7 +12,6 @@ const DatePickerFlights = ({ date, onChange }) => {
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-
   };
 
   const handleClose = () => {
@@ -65,6 +66,17 @@ const DatePickerFlights = ({ date, onChange }) => {
       </Popover>
     </Box>
   );
+};
+
+DatePickerFlights.propTypes = {
+  date: function (props, propName, componentName) {
+    if (!dayjs.isDayjs(props[propName])) {
+      return new Error(
+        `Invalid prop '${propName}' supplied to '${componentName}'. Must be a valid dayjs object.`
+      );
+    }
+  },
+  onChange: PropTypes.func.isRequired,
 };
 
 export default DatePickerFlights;

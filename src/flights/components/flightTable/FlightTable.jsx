@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import {
   StyledTableRow,
@@ -19,8 +20,7 @@ import {
 } from '@mui/material';
 
 export default function FlightTable({ dataFlights }) {
-
-   return (
+  return (
     <Container>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -73,3 +73,7 @@ export default function FlightTable({ dataFlights }) {
     </Container>
   );
 }
+
+FlightTable.propTypes = {
+  dataFlights: PropTypes.array.isRequired,
+};

@@ -1,9 +1,9 @@
 import { Fragment, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchFlights } from '../hook/filteredFlights';
 import FlightTable from '../components/flightTable/FlightTable';
-import { arrivedFlightsSelector } from '../flights.selectors';
 import NotFlights from '../components/notFlights/NotFlights';
-import { useDispatch, useSelector } from 'react-redux';
+import { arrivedFlightsSelector } from '../flights.selectors';
 import { getFligths } from '../flights.action';
 
 const Arrival = () => {

@@ -23,8 +23,6 @@ const useSearchFlights = (dataFlights) => {
       return formattedDate === qpDate;
     }
   );
-
-  console.log('res', filterFlights);
   return { filterFlights, qpDate };
 };
 

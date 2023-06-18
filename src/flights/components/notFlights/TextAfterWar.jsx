@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import { Typography } from '@mui/material';
 
-const TextAfterWar = ({date}) => {
+const TextAfterWar = ({ date }) => {
   return (
     <>
       <Typography variant="h3" pt={5}>
@@ -15,6 +16,10 @@ const TextAfterWar = ({date}) => {
       </Typography>
     </>
   );
+};
+
+TextAfterWar.propTypes = {
+  date: PropTypes.string.isRequired,
 };
 
 export default TextAfterWar;
