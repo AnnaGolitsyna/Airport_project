@@ -20,8 +20,6 @@ const Departure = () => {
   const { filterFlights, qpDate } = useSearchFlights(flightsData);
   const isValidFlight = filterFlights.length > 0;
 
-  if (!filterFlights) return;
-
   return (
     <Fragment>
       {!isValidFlight ? (
