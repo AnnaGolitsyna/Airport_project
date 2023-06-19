@@ -1,23 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
-import {
-  StyledTableRow,
-  StyledTableCell,
-  StyledTypography,
-} from './styledComponnent';
+import { StyledTableRow, StyledTypography } from './styledComponnent';
 import {
   Box,
   Table,
   TableBody,
   TableContainer,
   TableHead,
-  TableRow,
   TableCell,
   Paper,
   CardMedia,
   Container,
 } from '@mui/material';
+import TableRowFlights from './TableRowFlights';
+
+const columnNames = [
+  'Terminal',
+  'Schedule',
+  'Direction',
+  'Status',
+  'Airline',
+  'Flight',
+];
 
 export default function FlightTable({ dataFlights }) {
   return (
@@ -25,15 +30,9 @@ export default function FlightTable({ dataFlights }) {
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
-            <TableRow>
-              <StyledTableCell align="center">Terminal</StyledTableCell>
-              <StyledTableCell align="left">Schedule</StyledTableCell>
-              <StyledTableCell align="left">Direction</StyledTableCell>
-              <StyledTableCell align="left">Status</StyledTableCell>
-              <StyledTableCell align="left">Airline</StyledTableCell>
-              <StyledTableCell align="left">Flight</StyledTableCell>
-            </TableRow>
+            <TableRowFlights data={columnNames} />
           </TableHead>
+          
           <TableBody>
             {dataFlights.map((flight) => (
               <StyledTableRow
