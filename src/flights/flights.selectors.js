@@ -2,28 +2,39 @@ import { createSelector } from 'reselect';
 
 export const flightsDataSelector = (state) => state.flights.flights;
 
-export const formattedFlightsSelector = createSelector(
-  [flightsDataSelector],
-  (data) =>
-    data.map(
-      ({ departureDateExpected, arrivalCity, departureDate, ...rest }) => ({
-        dateExpected: departureDateExpected,
-        city: arrivalCity,
-        date: departureDate,
-        dateLabel: 'Departed at',
-        ...rest,
-      })
-    )
-);
-
-// add filter of city - Kyiv
-
 export const departuredFlightsSelector = createSelector(
-  [formattedFlightsSelector],
-  (flightsData) => flightsData.filter(({ type }) => type === 'DEPARTURE')
+  [flightsDataSelector],
+  (flightsData) =>
+    flightsData
+      .filter(({ type }) => type === 'DEPARTURE')
+      .map(
+        ({ departureDateExpected, departureCity, departureDate, ...rest }) => ({
+          dateExpected: departureDateExpected,
+          city: departureCity,
+          date: departureDate,
+          dateLabel: 'Departed at',
+          ...rest,
+        })
+      )
 );
 
 export const arrivedFlightsSelector = createSelector(
-  [formattedFlightsSelector],
-  (flightsData) => flightsData.filter(({ type }) => type === 'ARRIVAL')
+  [flightsDataSelector],
+  (flightsData) =>
+    flightsData
+      .filter(({ type }) => type === 'ARRIVAL')
+      .map(
+        ({
+          arrivalDateExpected,
+          arrivalCity,
+          arrivalDate,
+          ...rest
+        }) => ({
+          dateExpected: arrivalDateExpected,
+          city: arrivalCity,
+          date: arrivalDate,
+          dateLabel: 'Arrived at',
+          ...rest,
+        })
+      )
 );
