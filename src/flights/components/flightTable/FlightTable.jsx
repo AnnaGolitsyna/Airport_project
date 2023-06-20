@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import { StyledTableRow, StyledTypography } from './styledComponnent';
@@ -15,26 +15,71 @@ import {
 } from '@mui/material';
 import TableRowFlights from './TableRowFlights';
 
-const columnNames = [
-  'Terminal',
-  'Schedule',
-  'Direction',
-  'Status',
-  'Airline',
-  'Flight',
+const columnNamesList = [
+  { terminal: 'Terminal' },
+  { dateExpected: 'Schedule' },
+  { city: 'Direction' },
+  { date: 'Status' },
+  { airlineName: 'Airline' },
+  { codeShare: 'Flight' },
 ];
 
-export default function FlightTable({ dataFlights }) {
+const FlightTable = ({ dataFlights }) => {
+  const [orderDirection, setOrderDirection] = useState('asc');
+  const [valueToOrderBy, setValueToOrderBy] = useState('Schedule');
+
+  const handleSort = (event, property) => {
+    const isAscending = valueToOrderBy === property && orderDirection === 'asc';
+    setValueToOrderBy(property);
+    setOrderDirection(isAscending ? 'desc' : 'asc');
+  };
+
+  const descendingComparator = (a, b, orderBy) => {
+    if (b[orderBy] < a[orderBy]) {
+      return -1;
+    }
+    if (b[orderBy] > a[orderBy]) {
+      return 1;
+    }
+    return 0;
+  };
+
+  const getComparator = (order, orderBy) => {
+    return order === 'desc'
+      ? (a, b) => descendingComparator(a, b, orderBy)
+      : (a, b) => -descendingComparator(a, b, orderBy);
+  };
+
+  const sortedDataFlights = (array, comparator) => {
+    const stabilizedArray = array.map((el, ind) => [el, ind]);
+    stabilizedArray.sort((a, b) => {
+      const order = comparator(a[0], b[0]);
+      if (order !== 0) {
+        return order;
+      }
+      return a[1] - b[1];
+    });
+    return stabilizedArray.map((el) => el[0]);
+  };
+
+
+  const flights = sortedDataFlights(dataFlights, getComparator(orderDirection, valueToOrderBy))
+
   return (
     <Container>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
-            <TableRowFlights data={columnNames} />
+            <TableRowFlights
+              data={columnNamesList}
+              valueToOrderBy={valueToOrderBy}
+              orderDirection={orderDirection}
+              handleSort={handleSort}
+            />
           </TableHead>
-          
+
           <TableBody>
-            {dataFlights.map((flight) => (
+            {flights.map((flight) => (
               <StyledTableRow
                 key={flight.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -71,8 +116,10 @@ export default function FlightTable({ dataFlights }) {
       </TableContainer>
     </Container>
   );
-}
+};
 
 FlightTable.propTypes = {
   dataFlights: PropTypes.array.isRequired,
 };
+
+export default FlightTable;
