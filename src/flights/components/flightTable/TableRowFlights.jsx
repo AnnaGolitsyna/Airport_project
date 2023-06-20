@@ -4,7 +4,7 @@ import { TableRow, TableSortLabel } from '@mui/material';
 import { StyledTableCell } from './styledComponnent';
 
 const TableRowFlights = ({
-  data,
+  columnNamesList,
   valueToOrderBy,
   orderDirection,
   handleSort,
@@ -13,11 +13,9 @@ const TableRowFlights = ({
     handleSort(event, property);
   };
 
-  console.log(valueToOrderBy, orderDirection);
-
   return (
     <TableRow>
-      {data.map((el) => {
+      {columnNamesList.map((el) => {
         const key = Object.keys(el)[0];
         const label = el[key];
         return (
@@ -37,7 +35,7 @@ const TableRowFlights = ({
 };
 
 TableRowFlights.propTypes = {
-  data: PropTypes.array.isRequired,
+  columnNamesList: PropTypes.array.isRequired,
   valueToOrderBy: PropTypes.string.isRequired,
   orderDirection: PropTypes.string.isRequired,
   handleSort: PropTypes.func.isRequired,

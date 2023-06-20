@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import dayjs from 'dayjs';
-import { StyledTableRow, StyledTypography } from './styledComponnent';
 import {
-  Box,
   Table,
-  TableBody,
   TableContainer,
   TableHead,
-  TableCell,
   Paper,
-  CardMedia,
   Container,
 } from '@mui/material';
 import TableRowFlights from './TableRowFlights';
+import TableBodyFlights from './TableBodyFlights';
 
 const columnNamesList = [
   { terminal: 'Terminal' },
@@ -26,7 +21,7 @@ const columnNamesList = [
 
 const FlightTable = ({ dataFlights }) => {
   const [orderDirection, setOrderDirection] = useState('asc');
-  const [valueToOrderBy, setValueToOrderBy] = useState('Schedule');
+  const [valueToOrderBy, setValueToOrderBy] = useState('dateExpected');
 
   const handleSort = (event, property) => {
     const isAscending = valueToOrderBy === property && orderDirection === 'asc';
@@ -62,8 +57,10 @@ const FlightTable = ({ dataFlights }) => {
     return stabilizedArray.map((el) => el[0]);
   };
 
-
-  const flights = sortedDataFlights(dataFlights, getComparator(orderDirection, valueToOrderBy))
+  const flights = sortedDataFlights(
+    dataFlights,
+    getComparator(orderDirection, valueToOrderBy)
+  );
 
   return (
     <Container>
@@ -71,47 +68,14 @@ const FlightTable = ({ dataFlights }) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRowFlights
-              data={columnNamesList}
+              columnNamesList={columnNamesList}
               valueToOrderBy={valueToOrderBy}
               orderDirection={orderDirection}
               handleSort={handleSort}
             />
           </TableHead>
 
-          <TableBody>
-            {flights.map((flight) => (
-              <StyledTableRow
-                key={flight.id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                hover={true}
-              >
-                <TableCell align="center">
-                  <StyledTypography>{flight.terminal}</StyledTypography>
-                </TableCell>
-                <TableCell align="left">
-                  {dayjs(flight.dateExpected).format('LT')}
-                </TableCell>
-                <TableCell align="left">{flight.city}</TableCell>
-                <TableCell align="left">
-                  {flight.date
-                    ? `${flight.dateLabel} ${dayjs(flight.date).format('LT')}`
-                    : 'Expected'}
-                </TableCell>
-                <TableCell align="left">
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <CardMedia
-                      component="img"
-                      sx={{ maxWidth: 50, mr: 2 }}
-                      image={flight.airlineLogo}
-                      alt="logo"
-                    />
-                    {flight.airlineName}
-                  </Box>
-                </TableCell>
-                <TableCell align="left">{flight.codeShare}</TableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
+          <TableBodyFlights flights={flights} />
         </Table>
       </TableContainer>
     </Container>
