@@ -18,12 +18,16 @@ const TableRowFlights = ({
       {columnNamesList.map((el) => {
         const key = Object.keys(el)[0];
         const label = el[key];
+        const isActive = valueToOrderBy === key;
         return (
           <StyledTableCell align="left" key={key}>
             <TableSortLabel
-              active={valueToOrderBy === key}
-              direction={valueToOrderBy === key ? orderDirection : 'asc'}
+              active={isActive}
+              direction={isActive ? orderDirection : 'asc'}
               onClick={createSortHandler(key)}
+              sx={{
+                backgroundColor: isActive ? 'background.default' : 'inherit',
+              }}
             >
               {label}
             </TableSortLabel>
