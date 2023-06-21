@@ -58,7 +58,9 @@ const DatePickerFlights = ({ date, onChange }) => {
         }}
       >
         <Box sx={{ p: 2 }}>
-          <Alert severity="info">The flights were only up to 24.02.22</Alert>
+          <Alert severity="info">
+            Test data jan-may 2023. Let's start from 04.04.23
+          </Alert>
         </Box>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar value={date} onChange={handleSetDate} />
