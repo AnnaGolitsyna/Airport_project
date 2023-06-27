@@ -5,9 +5,9 @@ export const FLIGHTS_LIST_RECIEVED = 'FLIGHTS/FLIGHTS_LIST_RECIEVED';
 
 export const flightsRecieved = (dataFlights) => ({
   type: FLIGHTS_LIST_RECIEVED,
-  payload: dataFlights ,
+  payload: dataFlights,
 });
 
-export const getFligths = () => (dispatch) => {
+export const getFlights = () => (dispatch) => {
   return fetchFlights(testUrl).then((data) => dispatch(flightsRecieved(data)));
 };
