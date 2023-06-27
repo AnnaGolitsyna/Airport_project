@@ -1,37 +1,31 @@
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import FlightTable from './FlightTable';
 import TableRowFlights from './TableRowFlights';
 import TableBodyFlights from './TableBodyFlights';
 import { testFilterArr, testRowList } from '../../../utils/testData';
 
-const theme = createTheme();
-
 describe('FlightTable', () => {
-  test('TableRowFlights render', () => {
+  test('FlightTable renders', () => {
+    render(<FlightTable dataFlights={testFilterArr} />);
+    expect(screen.getByRole('table')).toBeInTheDocument();
+    const tableRow = screen.getAllByRole('row');
+    expect(tableRow).toHaveLength(testFilterArr.length + 1);
+  });
+
+  test('TableRowFlights renders', () => {
     render(
-      <Router>
-        <ThemeProvider theme={theme}>
-          <TableRowFlights
-            columnNamesList={testRowList}
-            valueToOrderBy="dateExpected"
-            orderDirection="asc"
-            handleSort={jest.fn()}
-          />
-        </ThemeProvider>
-      </Router>
+      <TableRowFlights
+        columnNamesList={testRowList}
+        valueToOrderBy="dateExpected"
+        orderDirection="asc"
+        handleSort={jest.fn()}
+      />
     );
     expect(screen.getByRole('row')).toBeInTheDocument();
   });
 
-  test('TableBodyFlights render', () => {
-    render(
-      <Router>
-        <ThemeProvider theme={theme}>
-          <TableBodyFlights flights={testFilterArr} />
-        </ThemeProvider>
-      </Router>
-    );
+  test('TableBodyFlights renders', () => {
+    render(<TableBodyFlights flights={testFilterArr} />);
     expect(screen.getByRole('rowgroup')).toBeInTheDocument();
   });
 });
