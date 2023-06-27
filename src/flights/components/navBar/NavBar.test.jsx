@@ -15,7 +15,6 @@ describe('render NavList', () => {
       </Router>
     );
 
-    //expect(screen.getByRole('link')).toBeInTheDocument();
     expect(screen.getByText('Press center')).toBeInTheDocument();
   });
 });
