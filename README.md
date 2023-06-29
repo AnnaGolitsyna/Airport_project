@@ -12,6 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [React](https://reactjs.org/docs/getting-started.html)
 - [React Router](https://reactrouter.com/en/main/start/concepts)
 - [Redux](https://redux.js.org/introduction/getting-started)
+- [Preact Testing Library](https://testing-library.com/docs/preact-testing-library/intro/)
 - [Material UI](https://mui.com/material-ui/getting-started/overview/)
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 

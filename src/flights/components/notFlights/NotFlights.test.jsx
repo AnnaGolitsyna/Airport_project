@@ -7,12 +7,12 @@ import TextBeforeWar from './TextBeforeWar';
 const theme = createTheme();
 
 describe('NotFlights componnent', () => {
-    
+const testDate = '22.01.22';
    test('renders "No flights" text', () => {
      render(
        <Router>
          <ThemeProvider theme={theme}>
-           <TextAfterWar />
+           <TextAfterWar date={testDate} />
          </ThemeProvider>
        </Router>
      );
@@ -23,7 +23,7 @@ describe('NotFlights componnent', () => {
    });
 
    test('renders "There is no such flight" text', () => {
-     const testDate = '22.01.22';
+
      render(
        <Router>
          <ThemeProvider theme={theme}>
