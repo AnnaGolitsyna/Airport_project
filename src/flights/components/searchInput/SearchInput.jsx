@@ -10,7 +10,7 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchInput = () => {
-  const [_, setSearchParams] = useSearchParams();
+  const [_, setSearchParams] = useSearchParams({});
 
   const handleSearch = (e) => {
     e.preventDefault();
