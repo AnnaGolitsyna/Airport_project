@@ -1,5 +1,4 @@
 import React from 'react';
-import LinearProgress from '@mui/material/LinearProgress';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
@@ -13,7 +12,7 @@ const Spinner = () => {
           display: 'flex',
           alignItems: 'center',
           flexDirection: 'column',
-          padding: '20px'
+          padding: '20px',
         }}
       >
         <CircularProgress size={80} />
