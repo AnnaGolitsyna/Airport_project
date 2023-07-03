@@ -10,21 +10,22 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchInput = () => {
-  const [_, setSearchParams] = useSearchParams({});
+  const [searchParams, setSearchParams] = useSearchParams({});
 
-  const handleSearch = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const query = e.target.searchInput.value;
+    const { value } = e.target.searchInput;
+
     setSearchParams((prevParams) => {
       return new URLSearchParams({
         ...Object.fromEntries(prevParams.entries()),
-        search: query.toUpperCase(),
+        search: value.toUpperCase(),
       });
     });
   };
 
   return (
-    <form onSubmit={handleSearch}>
+    <form onSubmit={handleSubmit}>
       <ButtonGroup>
         <FormControl
           variant="standard"
@@ -35,8 +36,11 @@ const SearchInput = () => {
             width: [250, 400, 500],
           }}
         >
-          <InputLabel sx={{ pl: 5 }}>Enter a flight number or city</InputLabel>
+          <InputLabel htmlFor="input-with-icon-adornment" sx={{ pl: 5 }}>
+            Enter a flight number or city
+          </InputLabel>
           <Input
+
             name="searchInput"
             id="input-with-icon-adornment"
             startAdornment={
@@ -47,6 +51,7 @@ const SearchInput = () => {
           />
         </FormControl>
         <Button
+          name="SEARCH"
           type="submit"
           variant="contained"
           sx={{
@@ -60,6 +65,7 @@ const SearchInput = () => {
           SEARCH
         </Button>
       </ButtonGroup>
+      
     </form>
   );
 };

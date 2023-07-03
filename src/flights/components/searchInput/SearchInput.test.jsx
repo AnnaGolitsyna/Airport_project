@@ -1,9 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { MemoryRouter as Router } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import SearchInput from './SearchInput';
-
-
 
 describe('SearchInput component', () => {
   test('SearchInput renders', () => {
@@ -19,14 +17,18 @@ describe('SearchInput component', () => {
     ).toBeInTheDocument();
   });
 
-//   test('onSubmit works correctly', async () => {
+  test('onSubmit works correctly', () => {
+    render(
+      <Router>
+        <SearchInput />
+      </Router>
+    );
 
-//     render(
-//       <Router>
-//         <SearchInput />
-//       </Router>
-//     );
+    const searchInput = screen.getByLabelText('Enter a flight number or city');
+    userEvent.type(searchInput, 'react');
 
+    expect(screen.getByRole('button')).toBeInTheDocument();
 
-//   });
+  
+  });
 });
