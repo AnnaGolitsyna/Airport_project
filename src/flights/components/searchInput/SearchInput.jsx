@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   FormControl,
@@ -10,16 +11,17 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchInput = () => {
+  const [text, setText] = useState();
   const [searchParams, setSearchParams] = useSearchParams({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { value } = e.target.searchInput;
+    //const { value } = e.target.searchInput;
 
     setSearchParams((prevParams) => {
       return new URLSearchParams({
         ...Object.fromEntries(prevParams.entries()),
-        search: value.toUpperCase(),
+        search: text.toUpperCase(),
       });
     });
   };
@@ -40,8 +42,9 @@ const SearchInput = () => {
             Enter a flight number or city
           </InputLabel>
           <Input
-
             name="searchInput"
+            value={text}
+            onChange={setText}
             id="input-with-icon-adornment"
             startAdornment={
               <InputAdornment position="start">
@@ -65,7 +68,6 @@ const SearchInput = () => {
           SEARCH
         </Button>
       </ButtonGroup>
-      
     </form>
   );
 };
