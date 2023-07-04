@@ -37,6 +37,7 @@ const DatePickerFlights = ({ date, onChange }) => {
       >
         <Typography>{date.format('DD/MM')}</Typography>
         <EventRepeatIcon
+          data-testid="event-icon"
           sx={{
             fontSize: '3em',
             bgcolor: 'primary.main',
@@ -71,13 +72,7 @@ const DatePickerFlights = ({ date, onChange }) => {
 };
 
 DatePickerFlights.propTypes = {
-  date: function (props, propName, componentName) {
-    if (!dayjs.isDayjs(props[propName])) {
-      return new Error(
-        `Invalid prop '${propName}' supplied to '${componentName}'. Must be a valid dayjs object.`
-      );
-    }
-  },
+  date: PropTypes.instanceOf(dayjs).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

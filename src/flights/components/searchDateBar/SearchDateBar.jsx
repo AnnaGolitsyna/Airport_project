@@ -16,7 +16,7 @@ import DateSwitch from './DateSwitch';
 
 const SearchDateBar = () => {
   const [date, setDate] = useState(dayjs(today));
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [_, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     setSearchParams((prevParams) => {
@@ -25,7 +25,7 @@ const SearchDateBar = () => {
         date: date.format('DD-MM-YYYY'),
       });
     });
-  }, [searchParams]);
+  }, [date, setSearchParams]);
 
   const handleChange = (event, newValue) => {
     setDate(newValue);

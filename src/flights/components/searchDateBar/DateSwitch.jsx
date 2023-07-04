@@ -41,13 +41,7 @@ const DateSwitch = ({ value, onChange }) => {
 };
 
 DateSwitch.propTypes = {
-  value: function (props, propName, componentName) {
-    if (!dayjs.isDayjs(props[propName])) {
-      return new Error(
-        `Invalid prop '${propName}' supplied to '${componentName}'. Must be a valid dayjs object.`
-      );
-    }
-  },
+  value: PropTypes.instanceOf(dayjs).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
