@@ -1,6 +1,6 @@
 import { Typography, Stack } from '@mui/material';
 import SearchTextBox from '../searchTextBox/SearchTextBox';
-import SearchBar from '../searchBar/SearchBar';
+import SearchDateBar from '../searchDateBar/SearchDateBar';
 
 const SearchFlights = () => {
   return (
@@ -18,7 +18,7 @@ const SearchFlights = () => {
 
       <SearchTextBox />
 
-      <SearchBar />
+      <SearchDateBar />
     </Stack>
   );
 };

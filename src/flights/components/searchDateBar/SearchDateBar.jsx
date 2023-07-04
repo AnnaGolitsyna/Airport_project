@@ -14,7 +14,7 @@ import dayjs from 'dayjs';
 import DatePickerFlights from './DatePickerFlights';
 import DateSwitch from './DateSwitch';
 
-const SearchBar = () => {
+const SearchDateBar = () => {
   const [date, setDate] = useState(dayjs(today));
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -26,7 +26,6 @@ const SearchBar = () => {
       });
     });
   }, [searchParams]);
-
 
   const handleChange = (event, newValue) => {
     setDate(newValue);
@@ -58,4 +57,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchDateBar;
