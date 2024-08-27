@@ -5,7 +5,7 @@ import SearchInput from './SearchInput';
 
 const SearchTextBox = () => {
   const [text, setText] = useState('');
-  const [_, setSearchParams] = useSearchParams({});
+  const [searchParams, setSearchParams] = useSearchParams({});
 
   const handleChange = ({ target: { value } }) => {
     setText(value);
@@ -20,14 +20,25 @@ const SearchTextBox = () => {
         search: text.toUpperCase(),
       });
     });
+  };
 
+  const handleClear = () => {
     setText('');
+    setSearchParams((prevParams) => {
+      const newParams = new URLSearchParams(prevParams);
+      newParams.delete('search');
+      return newParams;
+    });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <ButtonGroup>
-        <SearchInput value={text} onChange={handleChange} />
+        <SearchInput
+          value={text}
+          onChange={handleChange}
+          onClear={handleClear}
+        />
 
         <Button
           type="submit"

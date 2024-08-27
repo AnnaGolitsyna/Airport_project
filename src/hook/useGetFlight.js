@@ -36,5 +36,3 @@ const useGetFlights = (type) => {
 };
 
 export { useGetFlights };
-
-

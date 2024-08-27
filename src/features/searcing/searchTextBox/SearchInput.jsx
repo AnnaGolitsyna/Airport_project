@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormControl, InputLabel, Input, InputAdornment } from '@mui/material';
+import {
+  FormControl,
+  InputLabel,
+  Input,
+  InputAdornment,
+  IconButton,
+} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 
-const SearchInput = ({value, onChange}) => {
+const SearchInput = ({ value, onChange, onClear }) => {
   return (
     <FormControl
       variant="standard"
@@ -18,7 +25,6 @@ const SearchInput = ({value, onChange}) => {
         Enter a flight number or city
       </InputLabel>
       <Input
-       
         value={value}
         onChange={onChange}
         id="input-with-icon-adornment"
@@ -26,6 +32,20 @@ const SearchInput = ({value, onChange}) => {
           <InputAdornment position="start">
             <SearchIcon />
           </InputAdornment>
+        }
+        endAdornment={
+          value && (
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="clear search"
+                onClick={onClear}
+                edge="end"
+                size="small"
+              >
+                <ClearIcon />
+              </IconButton>
+            </InputAdornment>
+          )
         }
       />
     </FormControl>

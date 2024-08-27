@@ -16,7 +16,7 @@ const NavBar = () => {
   return (
     <StyledBox sx={{ typography: 'body1' }} onClick={preventDefault}>
       {navList.map((navName, ind) => (
-        <NavLink key={navName} to={`/Later${ind}`}>
+        <NavLink key={navName} to={`/later`}>
           {navName}
         </NavLink>
       ))}
