@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import dayjs from 'dayjs';
-import { today } from '../../utils/date';
+import { today } from '../utils/date';
 
 const useSearchFlights = (dataFlights) => {
   const [searchParams] = useSearchParams({

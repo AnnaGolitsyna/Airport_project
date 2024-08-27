@@ -8,6 +8,8 @@ export const flightsRecieved = (dataFlights) => ({
   payload: dataFlights,
 });
 
-export const getFlights = () => (dispatch) => {
-  return fetchFlights(testUrl).then((data) => dispatch(flightsRecieved(data)));
+export const getFlights = () => async (dispatch) => {
+  return await fetchFlights(testUrl).then((data) =>
+    dispatch(flightsRecieved(data))
+  );
 };

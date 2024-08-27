@@ -5,10 +5,9 @@ import store from './store.js';
 import { ThemeProvider } from '@mui/material';
 import theme from './style/theme';
 import { GlobalStyles } from '@mui/material';
-import Layout from './flights/pages/Layout';
-import NotFoundPage from './flights/pages/NotFoundPage';
-import Departure from './flights/pages/Departure';
-import Arrival from './flights/pages/Arrival';
+import Layout from './pages/Layout.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
+import FlightContent from './pages/FlightContent.jsx';
 
 const App = () => {
   return (
@@ -24,9 +23,8 @@ const App = () => {
         <Provider store={store}>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route path="departure" element={<Departure />} />
-              <Route path="arrival" element={<Arrival />} />
               <Route index element={<Navigate to="departure" replace />} />
+              <Route path=":type" element={<FlightContent />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
