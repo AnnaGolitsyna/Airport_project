@@ -23,4 +23,4 @@ const SearchFlights = () => {
   );
 };
 
-export default SearchFlights;
+export { SearchFlights };

@@ -20,6 +20,8 @@ const SearchTextBox = () => {
         search: text.toUpperCase(),
       });
     });
+
+    setText('');
   };
 
   return (

@@ -1,0 +1,1 @@
+export { SearchFlights as default} from './searchFlights/SearchFlights';

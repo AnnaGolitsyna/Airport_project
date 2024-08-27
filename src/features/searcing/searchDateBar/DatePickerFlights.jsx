@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
-import { Box, Typography, Popover, Alert } from '@mui/material';
+import { Box, Typography, Popover, Alert, Link } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
@@ -60,7 +60,16 @@ const DatePickerFlights = ({ date, onChange }) => {
       >
         <Box sx={{ p: 2 }}>
           <Alert severity="info">
-            Test data jan-may 2023. Nice day 04.04.23
+            Test data jan-may 2023.{' '}
+            <Link
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSetDate(dayjs('2023-04-04'));
+              }}
+            >
+              Nice day 04.04.23
+            </Link>
           </Alert>
         </Box>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
