@@ -14,19 +14,21 @@ const FlightContent = () => {
     return <Spinner />;
   }
 
-  const content =
-    type === 'later' ? (
-      <NotFoundPage />
-    ) : filterFlights.length > 0 ? (
-      <FlightTable dataFlights={filterFlights} />
-    ) : (
-      <NotFlights date={qpDate} />
-    );
+  if (error) {
+    return <ErrorAlert message="Failed to fetch flights." />;
+  }
+
+  if (type === 'later') {
+    return <NotFoundPage />;
+  }
 
   return (
     <>
-      {error && <ErrorAlert message={`Failed to fetch flights.`} />}
-      {content}
+      {filterFlights.length > 0 ? (
+        <FlightTable dataFlights={filterFlights} />
+      ) : (
+        <NotFlights date={qpDate} />
+      )}
     </>
   );
 };
